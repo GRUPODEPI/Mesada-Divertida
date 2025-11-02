@@ -49,39 +49,3 @@ A organização dos arquivos é simples e direta:
 └── README.md           \# Este arquivo
 
 ````
-
-## ▶ Como Jogar (Execução Local)
-
-Para rodar o projeto em seu computador (ambiente de desenvolvimento):
-
-1.  **Clone o repositório:**
-    ```bash
-    git clone [https://docs.github.com/pt/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github](https://docs.github.com/pt/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)
-    ```
-2.  **Abra o arquivo:**
-    Localize o arquivo `index.html` na pasta do projeto.
-3.  **Execute no Navegador:**
-    Clique duas vezes em `index.html` (ou use a opção "Abrir com" seu navegador preferido). O jogo será carregado e estará pronto para uso.
-
----
-
-## 2. Avaliação e Sugestões para a Continuidade
-
-Como desenvolvedor do projeto, a base que você construiu é **sólida e bem estruturada**. O encapsulamento da lógica do jogo na variável `state` e a forma como as escolhas aplicam `score` e `walletDelta` em `script.js` é uma excelente prática para um projeto em JavaScript Vanilla.
-
-Aqui estão as minhas sugestões, focadas em aumentar o valor pedagógico e a retenção do jogador, transformando o "quiz" em uma "simulação de vida":
-
-| Foco | Ação Sugerida | Detalhes Técnicos (JavaScript) |
-| :--- | :--- | :--- |
-| **Aprofundamento da Mecânica** | **Adicionar um Sistema de Metas (Cofrinho Virtual)** | Criar um novo campo em `state` (ex: `savingsGoal: 100`, `currentSavings: 0`). Algumas decisões não apenas aumentariam a `wallet` mas também a `currentSavings`, que só poderia ser usada ao atingir o `savingsGoal`. |
-| **Imersão e Narrativa** | **Criar "Eventos Aleatórios" (Sorte ou Azar)** | Introduzir fases que não são quiz, mas eventos que influenciam a `wallet` ou o `score`. Ex: "Você ajudou um vizinho e ganhou R$5" (Good Event) ou "Sua bola furou, precisa economizar para uma nova" (Bad Event). |
-| **Valor Pedagógico** | **Reforço Educacional Pós-Resposta** | Na função `handleChoice` em `script.js`, adicione um campo de texto explicativo (`explanation`) para cada `choice` na lista `challenges`. Exiba essa explicação em `feedbackEl` após a escolha, independentemente de estar certa ou errada. |
-| **Manutenibilidade** | **Separar Dados e Lógica** | Mover o *array* `challenges` (atualmente em `script.js`) para um novo arquivo (`data/challenges.js`). Isso isola o conteúdo do jogo da lógica, facilitando a adição de novas fases e a colaboração futura. |
-| **Interface do Usuário (UX)** | **Indicador Visual de Progresso** | Adicionar uma barra de progresso no `index.html` (e estilizar em `style.css`) para mostrar a porcentagem de desafios concluídos, oferecendo uma sensação clara de avanço além do contador de fases. |
-
-### Próximos Passos Sugeridos
-
-1.  **Reforço Educacional (Prioridade Pedagógica):** Implemente as explicações detalhadas para cada escolha na função `handleChoice` em `script.js` (passo mais importante para um jogo *educativo*).
-2.  **Organização do Conteúdo:** Crie a pasta `data` e mova o *array* `challenges` para um arquivo externo, como `data/challenges.js`, e o importe em `index.html`.
-3.  **Implementação da Meta de Economia:** Adicione a variável `savingsGoal` ao `state` e implemente a lógica de cofrinho, ensinando a importância da economia com propósito.
-````
