@@ -335,16 +335,16 @@ function showResult(){
     // Lógica para determinar a mensagem de incentivo (Baseada no desempenho final)
     if (finalScore >= 120) {
         title = '🥇 Mestre das Finanças! Parabéns!';
-        message = `Suas decisões foram excelentes. Você demonstrou uma **visão de longo prazo** e um **controle financeiro de gênio**, terminando com **R$ ${state.wallet}** na carteira. Continue assim!`;
+        message = `Suas decisões foram excelentes. Você demonstrou uma *visão de longo prazo* e um *controle financeiro de gênio*, terminando com *R$ ${state.wallet}* na carteira. Continue assim!`;
     } else if (finalScore >= 80) {
         title = '🥈 Ótimo Desempenho!';
-        message = `Você fez muitas escolhas inteligentes! Há um bom **equilíbrio** entre gastar e poupar. Sua pontuação foi alta e você terminou com **R$ ${state.wallet}**. Continue focado no planejamento!`;
+        message = `Você fez muitas escolhas inteligentes! Há um bom *equilíbrio* entre gastar e poupar. Sua pontuação foi alta e você terminou com *R$ ${state.wallet}*. Continue focado no planejamento!`;
     } else if (finalScore >= 40) {
         title = '🥉 Bom Começo!';
-        message = `Você já entende os conceitos básicos, mas houve alguns gastos por impulso. Lembre-se: **planejar é a chave**! Sua pontuação foi razoável, e você terminou com **R$ ${state.wallet}**. Na próxima, tente poupar mais!`;
+        message = `Você já entende os conceitos básicos, mas houve alguns gastos por impulso. Lembre-se: *planejar é a chave*! Sua pontuação foi razoável, e você terminou com *R$ ${state.wallet}*. Na próxima, tente poupar mais!`;
     } else {
         title = '💡 Momento de Aprender!';
-        message = `Sua pontuação final mostra que há espaço para grandes melhorias. As finanças exigem **disciplina** e **atenção**. Não desanime, revise as explicações e tente de novo para terminar com mais dinheiro na sua carteira (**R$ ${state.wallet}**).`;
+        message = `Sua pontuação final mostra que há espaço para grandes melhorias. As finanças exigem *disciplina* e *atenção*. Não desanime, revise as explicações e tente de novo para terminar com mais dinheiro na sua carteira (*R$ ${state.wallet}*).`;
     }
 
     // Estrutura final do texto
