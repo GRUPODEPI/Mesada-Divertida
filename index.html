@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Meu Jogo Quiz — Mesada Divertida</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="assets/images/logo.png" alt="Logo" id="logo" onerror="this.style.display='none'">
+      <div>
+        <h1>Mesada Divertida</h1>
+        <small>Quiz educativo — 5º ano</small>
+      </div>
+    </div>
+    <div class="score-panel" aria-live="polite">
+      <div class="wallet">💵 <span id="wallet">R$ 100</span></div>
+      <div class="score">⭐ <span id="score">0</span></div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="menu" class="card center">
+      <h2>Bem-vindo!</h2>
+      <p>Aprenda decisões financeiras com um quiz divertido.</p>
+      <div class="controls">
+        <button id="start-btn" class="btn primary">Iniciar Jogo</button>
+        <button id="continue-btn" class="btn" title="Retomar progresso salvo">Continuar</button>
+        <button id="reset-btn" class="btn danger" title="Apaga o progresso local">Reiniciar</button>
+      </div>
+      <p class="hint">O progresso do jogo é salvo automaticamente no seu navegador.</p>
+    </section>
+
+    <section id="game-area" class="card hidden" aria-hidden="true">
+      <div class="hud">
+        <div>Fase: <span id="stage">1</span>/<span id="total-stages">1</span></div>
+        <div id="feedback" class="feedback" aria-live="polite"></div>
+      </div>
+
+      <div id="card" class="question-card">
+        <p id="question" class="question-text"></p>
+        <div id="options" class="options"></div>
+      </div>
+
+      <div class="game-footer">
+        <button id="prev-btn" class="btn small">◀ Voltar</button>
+        <button id="next-btn" class="btn small">Próxima ▶</button>
+      </div>
+    </section>
+
+    <section id="result-area" class="card hidden" aria-hidden="true">
+      <p id="result-text"></p>
+      <div class="result-actions">
+        <button id="play-again" class="btn primary">Jogar Novamente</button>
+        <button id="to-menu" class="btn">Voltar ao Menu</button>
+      </div>
+    </section>
+
+    <section id="about-project" class="card info-card">
+      <h2>🪙 Sobre o Projeto "Mesada Divertida"</h2>
+      <p>Este jogo é um projeto educativo focado em crianças do Ensino Fundamental I (5º ano). Nosso objetivo é transformar o aprendizado de finanças pessoais em algo divertido e prático!</p>
+      
+      <h3>🎯 O que você vai aprender:</h3>
+      <ul>
+        <li>Tomada de Decisão: Simular como usar sua mesada de forma inteligente.</li>
+        <li>Economia: A importância de guardar dinheiro para grandes objetivos.</li>
+        <li>Planejamento: Evitar compras por impulso e gastos não planejados.</li>
+      </ul>
+
+      <p class="project-note">Toda vez que você escolhe uma opção, o jogo te dá um feedback imediato sobre o impacto da sua decisão na sua carteira e no seu score financeiro. Assim, você aprende errando e acertando!</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Projeto Integrador — Educação Financeira • Versão Estudante</small>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

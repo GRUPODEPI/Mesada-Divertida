@@ -1,0 +1,441 @@
+:root {
+  /* Cores mais vibrantes e infantis */
+  --bg: #e0f2ff; /* Azul claro para o fundo base */
+  --card: #ffffff;
+  --accent: #00b894; /* Verde Água mais vivo (Primary) */
+  --accent-2: #55efc4;
+  --danger: #ff6b81; /* Vermelho mais suave */
+  --text: #1e3753; /* Azul escuro para o texto */
+  --muted: #64748b;
+  --glass: rgba(255,255,255,0.8);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  margin: 0;
+  
+  /* FUNDO COM IMAGEM */
+  background: var(--bg);
+  background-image: url('assets/images/school-pattern.jpg'); 
+  background-repeat: repeat; 
+  background-attachment: fixed;
+  
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* BARRA SUPERIOR PARA MELHOR CONTRASTE (Glassmorphism) */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  gap: 16px;
+  
+  background: rgba(255, 255, 255, 0.7); 
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  position: sticky; 
+  top: 0;
+  z-index: 100; 
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.brand img {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* DESTAQUE NO TÍTULO */
+.brand h1 {
+  margin: 0;
+  font-size: 18px;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8); 
+  font-weight: 900;
+  color: var(--text);
+}
+
+/* Sombra sutil na descrição */
+.brand small {
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
+  color: var(--muted);
+}
+
+.score-panel {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* DESIGN DE ETIQUETA PARA O PLACAR */
+.score-panel .wallet,
+.score-panel .score {
+  background: #fff8e1; /* Amarelo pálido suave */
+  color: #ff9800; 
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(255, 152, 0, 0.15); 
+  border: 1px solid rgba(255, 152, 0, 0.3);
+}
+
+.container {
+  max-width: 880px;
+  margin: 25px auto;
+  padding: 0 16px;
+}
+
+/* ESTILO PADRÃO DO CARD (Regras gerais, será sobrescrito abaixo) */
+.card {
+  /* Fundo, sombra e borda serão sobrescritos */
+  border-radius: 25px; 
+  padding: 25px; 
+  margin-bottom: 25px;
+  transition: transform 0.2s ease;
+}
+
+/* SOBRESCRITA: ESTILO UNIFICADO PARA TODOS OS CARDS PRINCIPAIS (Efeito Caderno) */
+#menu,
+.info-card,
+#game-area, /* NOVO: Game Card */
+#result-area { /* NOVO: Result Card */
+    /* Fundo creme muito pálido */
+    background: linear-gradient(180deg, #fffefc 0%, #fffcf3 100%);
+    
+    /* Borda colorida para simular uma capa ou caderno */
+    border: 3px solid var(--accent);
+    
+    /* Sombra ligeiramente ajustada (Efeito 3D sutil) */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
+}
+
+/* Garante que o hover funcione com a nova sombra para todos os cards */
+#menu:hover,
+.info-card:hover,
+#game-area:hover,
+#result-area:hover {
+    transform: translateY(-2px); 
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+#menu h2 {
+    color: var(--text);
+    font-size: 1.8em;
+    font-weight: 900;
+}
+
+.center {
+  text-align: center;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.btn {
+  border: 0;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #eef2f6;
+  color: var(--text);
+  font-weight: 600;
+  transition: transform .1s ease, box-shadow .15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn.primary {
+  /* Gradiente mais energético */
+  background: linear-gradient(145deg, var(--accent-2), var(--accent));
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 10px 24px rgba(0, 184, 148, 0.25);
+}
+
+.btn.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 184, 148, 0.35);
+}
+
+.btn.danger {
+  background: var(--danger);
+  color: white;
+}
+
+.btn.small {
+  padding: 8px 10px;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+.hidden {
+  display: none;
+}
+
+.hud {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+/* Estilos para a caixa de feedback pedagógico (Fundo sutil) */
+.feedback {
+  min-height: 20px;
+  color: var(--text);
+  font-weight: 600;
+  
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 10px;
+  border-left: 5px solid;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* CLASSES PARA CORES DINÂMICAS DO FEEDBACK */
+/* Mantemos as cores de fundo para indicar status (Sucesso/Erro) */
+.feedback-success {
+    background-color: #e6ffe6;
+    border-color: var(--accent); 
+}
+
+.feedback-error {
+    background-color: #fff0e6;
+    border-color: #ff9900; 
+}
+
+.feedback-header {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.chosen-answer {
+    font-size: 0.9em;
+    color: var(--muted);
+    margin-bottom: 5px;
+}
+
+/* NOVO: Estilo da caixa de pergunta interna (Simples, sem bordas pesadas) */
+.question-card {
+  padding: 16px;
+  border-radius: 15px; 
+  background: transparent; /* Permite que o fundo creme do card principal apareça */
+  border: none;
+  box-shadow: none;
+}
+
+.question-text {
+  font-size: 18px;
+  margin-bottom: 14px;
+}
+
+.options {
+  display: grid;
+  gap: 10px;
+}
+
+.option-btn {
+  text-align: left;
+  padding: 12px;
+  border-radius: 10px;
+  border: 2px solid rgba(34,197,94,0.12);
+  background: transparent;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all .14s cubic-bezier(.2,.9,.3,1);
+}
+
+.option-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(34,197,94,0.06);
+}
+
+.option-btn.correct {
+  border-color: rgba(34,197,94,0.6);
+  background: linear-gradient(90deg, rgba(34,197,94,0.06), transparent);
+}
+
+.option-btn.wrong {
+  border-color: rgba(239,68,68,0.7);
+  background: linear-gradient(90deg, rgba(239,68,68,0.04), transparent);
+}
+
+.game-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.result-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.coin-anim {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  background: radial-gradient(circle at 40% 30%, #fff 0%, #ffd700 10%, #ffb400 70%);
+  border-radius: 50%;
+  box-shadow: inset 0 -6px 10px rgba(0,0,0,0.12), 0 6px 18px rgba(0,0,0,0.08);
+  animation: pop 700ms ease forwards;
+}
+
+@keyframes pop {
+  0% { transform: scale(0); opacity: 0; }
+  60% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Estilos da Seção Informativa */
+.info-card h2 {
+    color: var(--accent);
+    font-size: 1.5em;
+    border-bottom: 2px solid var(--accent-2);
+    padding-bottom: 5px;
+    margin-top: 0;
+    font-weight: 800;
+}
+
+.info-card h3 {
+    color: var(--text);
+    font-size: 1.1em;
+    margin-top: 15px;
+    font-weight: 700;
+}
+
+.info-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.info-card ul li {
+    padding: 5px 0 5px 25px;
+    position: relative;
+    line-height: 1.4;
+    font-size: 0.95em;
+    font-weight: 500;
+}
+
+.info-card ul li::before {
+    content: "💡"; 
+    position: absolute;
+    left: 0;
+    top: 5px;
+    font-size: 1.1em;
+}
+
+.info-card .project-note {
+    font-style: italic;
+    border-top: 1px dashed var(--muted);
+    padding-top: 10px;
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: var(--muted);
+}
+
+/* ESTILO DO RODAPÉ (Glassmorphism e Fonte Destacada) */
+.footer {
+  text-align: center;
+  
+  /* Garante que ocupe a largura total da tela (tarja de ponta a ponta) */
+  width: 100%;
+  
+  /* REPLICA O ESTILO GLASSMOPHISM DO .TOPBAR */
+  background: rgba(255, 255, 255, 0.7); 
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  
+  border-top: 1px solid rgba(0, 0, 0, 0.05); 
+  box-shadow: none; 
+  
+  padding: 12px 16px; 
+  margin-top: 30px; 
+  margin-bottom: 0;
+  
+  /* Estilização da FONTE (replicando o .brand h1) */
+  color: var(--text); 
+  font-size: 16px; 
+  font-weight: 900; 
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8); 
+  
+  /* Mantém o rodapé no final do conteúdo */
+  position: relative; 
+  left: 0;
+  right: 0;
+}
+
+
+/* MODAL */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.modal-content h2 {
+  margin-bottom: 10px;
+}
+
+.modal-content button {
+  margin: 10px;
+}
+
+
+/* Responsividade */
+@media (max-width: 560px) {
+  .question-text { font-size: 16px; }
+  .brand h1 { font-size: 16px; }
+  /* Ajusta o topbar para dispositivos móveis */
+  .topbar { flex-direction: column; align-items: flex-start; gap: 8px; padding: 12px; }
+}
