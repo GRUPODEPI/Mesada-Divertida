@@ -58,7 +58,7 @@ const challenges = [
     { id: 'c2', q: 'Você quer comprar um brinquedo de R$100. Qual seria a sua escolha?', choices: [
         { text: 'Peço emprestado a juros', score: -10, walletDelta: 0, good: false, explanation: 'Pegar dinheiro emprestado com juros (ou taxas) é arriscado e deve ser evitado, pois você terá que devolver mais do que pegou.' },
         { text: 'Desisto e fico triste', score: -2, walletDelta: 0, good: false, explanation: 'Você pode ter um objetivo sem ter que desistir dele. O planejamento é a chave para alcançá-lo!' },
-        { text: 'Guardo um pouco por mês até ter o suficiente', score: 12, walletDelta: 0, good: true, explanation: 'Parabéns! Isso se chama *planejamento** e *disciplina*. É a melhor forma de comprar algo caro!' },
+        { text: 'Guardo um pouco por mês até ter o suficiente', score: 12, walletDelta: 0, good: true, explanation: 'Parabéns! Isso se chama *planejamento* e *disciplina*. É a melhor forma de comprar algo caro!' },
         { text: 'Gasto R$40 em itens pequenos para compensar, e desisto do brinquedo de R$100', score: -5, walletDelta: -40, good: false, explanation: 'Cuidado com o "gasto de compensação"! Gastar sem foco faz você perder dinheiro com coisas que não queria realmente.' }
     ] },
     { id: 'c3', q: 'Seu amigo te convida para um lanche que custa R$20. Qual seria a sua decisão?', choices: [
